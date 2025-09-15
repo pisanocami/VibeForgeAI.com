@@ -1,0 +1,273 @@
+import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
+
+export default {
+  darkMode: ["class"],
+  // Keep content scanning minimal and aligned to our src structure
+  content: ["./index.html", "./src/**/*.{ts,tsx}"],
+  prefix: "",
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    // Mobile-first breakpoints for optimal responsive design
+    screens: {
+      'xs': '475px',
+      'sm': '640px', 
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
+    extend: {
+      fontFamily: {
+        sans: ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Monaco', 'Consolas', 'monospace'],
+      },
+      // All colors are derived from HSL CSS variables defined in src/index.css
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        
+        /* VIBESHIFT.AI Brand Colors v2.0 */
+        "VIBESHIFT-base": "hsl(var(--VIBESHIFT-base))",
+        "VIBESHIFT-primary": "hsl(var(--VIBESHIFT-primary))",
+        "VIBESHIFT-secondary": "hsl(var(--VIBESHIFT-secondary))",
+        "VIBESHIFT-success": "hsl(var(--VIBESHIFT-success))",
+        "VIBESHIFT-warning": "hsl(var(--VIBESHIFT-warning))",
+        "VIBESHIFT-error": "hsl(var(--VIBESHIFT-error))",
+        "VIBESHIFT-neutral": "hsl(var(--VIBESHIFT-neutral))",
+        
+        /* Legacy aliases */
+        "primary-deep": "hsl(var(--primary-deep))",
+        "primary-bright": "hsl(var(--primary-bright))",
+        "primary-glow": "hsl(var(--primary-glow))",
+        "accent-energy": "hsl(var(--accent-energy))",
+        "accent-warm": "hsl(var(--accent-warm))",
+        
+        /* Neutral Scale */
+        "neutral-light": "hsl(var(--neutral-light))",
+        "neutral-50": "hsl(var(--neutral-50))",
+        "neutral-100": "hsl(var(--neutral-100))",
+        "neutral-200": "hsl(var(--neutral-200))",
+        "neutral-300": "hsl(var(--neutral-300))",
+        "neutral-400": "hsl(var(--neutral-400))",
+        "neutral-500": "hsl(var(--neutral-500))",
+        "neutral-600": "hsl(var(--neutral-600))",
+        "neutral-700": "hsl(var(--neutral-700))",
+        "neutral-800": "hsl(var(--neutral-800))",
+        "neutral-900": "hsl(var(--neutral-900))",
+        "neutral-950": "hsl(var(--neutral-950))",
+        
+        /* Semantic Colors */
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        sidebar: {
+          DEFAULT: "hsl(var(--sidebar-background))",
+          foreground: "hsl(var(--sidebar-foreground))",
+          primary: "hsl(var(--sidebar-primary))",
+          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+          accent: "hsl(var(--sidebar-accent))",
+          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+          border: "hsl(var(--sidebar-border))",
+          ring: "hsl(var(--sidebar-ring))",
+        },
+        
+        /* AI VIBESHIFT brand palette (HSL variables) */
+        'VIBESHIFT-void': 'hsl(var(--VIBESHIFT-void))',
+        'VIBESHIFT-void-light': 'hsl(var(--VIBESHIFT-void-light))',
+        'VIBESHIFT-electric': 'hsl(var(--VIBESHIFT-electric))',
+        'VIBESHIFT-electric-dark': 'hsl(var(--VIBESHIFT-electric-dark))',
+        'VIBESHIFT-fire': 'hsl(var(--VIBESHIFT-fire))',
+        'VIBESHIFT-fire-dark': 'hsl(var(--VIBESHIFT-fire-dark))',
+        'VIBESHIFT-gold': 'hsl(var(--VIBESHIFT-gold))',
+        'VIBESHIFT-gold-dark': 'hsl(var(--VIBESHIFT-gold-dark))',
+        'VIBESHIFT-matrix': 'hsl(var(--VIBESHIFT-matrix))',
+        'VIBESHIFT-matrix-dark': 'hsl(var(--VIBESHIFT-matrix-dark))',
+        'VIBESHIFT-ice': 'hsl(var(--VIBESHIFT-ice))',
+        'VIBESHIFT-gray': 'hsl(var(--VIBESHIFT-gray))',
+        
+        /* Semantic aliases for convenience */
+        'surface': 'hsl(var(--card))',
+        'success': 'hsl(var(--VIBESHIFT-matrix))',
+        'warning': 'hsl(var(--VIBESHIFT-gold))',
+        'error': 'hsl(var(--VIBESHIFT-fire))',
+      },
+      spacing: {
+        'xs': 'var(--space-xs)', 
+        'sm': 'var(--space-sm)', 
+        'md': 'var(--space-md)',
+        'lg': 'var(--space-lg)',
+        'xl': 'var(--space-xl)',
+        '2xl': 'var(--space-2xl)',
+        '3xl': 'var(--space-3xl)',
+        '4xl': 'var(--space-4xl)',
+        '5xl': 'var(--space-5xl)',
+      },
+      maxWidth: {
+        'container': 'var(--container-max)',
+      },
+      borderRadius: {
+        'xs': 'var(--radius-xs)',
+        'sm': 'var(--radius-sm)',
+        'input': 'var(--radius-input)',  /* 6px - Inputs */
+        DEFAULT: 'var(--radius)',        /* 8px - Buttons */
+        'md': 'var(--radius-md)',        /* 12px - Cards */
+        'lg': 'var(--radius-lg)',
+        'xl': 'var(--radius-xl)',
+        '2xl': 'var(--radius-2xl)',
+        'full': 'var(--radius-full)',
+      },
+      fontSize: {
+        /* VIBESHIFT.AI Typography Scale */
+        'label': ['0.75rem', { lineHeight: '1rem', fontWeight: '600' }],   /* Labels/chips */
+        'body-sm': ['0.875rem', { lineHeight: '1.25rem' }],                                          /* 0.87rem */
+        'body': ['1rem', { lineHeight: '1.5rem' }],                                                  /* Body text */
+        'heading-sm': ['1.25rem', { lineHeight: '1.5rem', fontWeight: '600' }],                     /* Small headings */
+        'heading-md': ['1.7rem', { lineHeight: '2rem', fontWeight: '600' }],                        /* Medium headings */
+        'heading-lg': ['2.2rem', { lineHeight: '2.5rem', fontWeight: '700' }],                      /* Large headings */
+        
+        /* Legacy sizes for compatibility */
+        'xs': ['0.75rem', { lineHeight: '1rem' }],
+        'sm': ['0.875rem', { lineHeight: '1.25rem' }],
+        'base': ['1rem', { lineHeight: '1.5rem' }],
+        'lg': ['1.125rem', { lineHeight: '1.75rem' }],
+        'xl': ['1.25rem', { lineHeight: '1.75rem' }],
+        '2xl': ['1.5rem', { lineHeight: '2rem' }],
+        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+        '5xl': ['3rem', { lineHeight: '1' }],
+      },
+      boxShadow: {
+        'VIBESHIFT': 'var(--shadow-VIBESHIFT)',  /* New base shadow */
+        'glow': 'var(--shadow-glow)',
+        'energy': 'var(--shadow-energy)',
+      },
+      transitionDuration: {
+        'fast': '150ms',
+        'normal': '300ms', 
+        'slow': '500ms',
+      },
+      transitionTimingFunction: {
+        'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
+      },
+      backgroundSize: {
+        '400': '400% 400%',
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0", opacity: "0" },
+          to: { height: "var(--radix-accordion-content-height)", opacity: "1" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)", opacity: "1" },
+          to: { height: "0", opacity: "0" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-out": {
+          "0%": { opacity: "1", transform: "translateY(0)" },
+          "100%": { opacity: "0", transform: "translateY(10px)" },
+        },
+        "scale-in": {
+          "0%": { transform: "scale(0.95)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
+        "scale-out": {
+          "0%": { transform: "scale(1)", opacity: "1" },
+          "100%": { transform: "scale(0.95)", opacity: "0" },
+        },
+        "slide-up": {
+          "0%": { transform: "translateY(100%)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "slide-down": {
+          "0%": { transform: "translateY(-100%)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "glow-pulse": {
+          "0%, 100%": { boxShadow: "var(--shadow-glow)" },
+          "50%": { boxShadow: "0 0 40px hsl(var(--VIBESHIFT-electric) / 0.5)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        glitch: {
+          '0%': { transform: 'translateX(0)' },
+          '20%': { transform: 'translateX(-2px)' },
+          '40%': { transform: 'translateX(2px)' },
+          '60%': { transform: 'translateX(-2px)' },
+          '80%': { transform: 'translateX(2px)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        shimmer: {
+          '0%': { left: '-100%' },
+          '100%': { left: '100%' },
+        },
+        gradient: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+        // Vertical scroll for code-matrix background
+        scroll: {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-50%)' },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.3s ease-out",
+        "accordion-up": "accordion-up 0.3s ease-out", 
+        "fade-in": "fade-in 0.3s ease-out",
+        "fade-out": "fade-out 0.3s ease-out",
+        "scale-in": "scale-in 0.2s ease-out",
+        "scale-out": "scale-out 0.2s ease-out",
+        "slide-up": "slide-up 0.3s ease-out",
+        "slide-down": "slide-down 0.3s ease-out",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        "float": "float 3s ease-in-out infinite",
+        'glitch': 'glitch 0.3s ease-in-out infinite',
+        'shimmer': 'shimmer 2s infinite',
+        'gradient': 'gradient 15s ease infinite',
+        'scroll': 'scroll 20s linear infinite',
+      },
+    },
+  },
+  plugins: [animate],
+} satisfies Config;

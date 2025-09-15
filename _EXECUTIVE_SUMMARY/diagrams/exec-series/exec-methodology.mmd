@@ -1,0 +1,20 @@
+%%{ init: { "theme": "base", "themeVariables": { "fontFamily": "Manrope, Inter, system-ui, sans-serif", "primaryColor": "#8768FF", "primaryBorderColor": "#120433", "primaryTextColor": "#120433", "lineColor": "#8768FF", "textColor": "#120433", "tertiaryColor": "#F9F9FB" }, "flowchart": { "curve": "basis", "htmlLabels": true, "nodeSpacing": 50, "rankSpacing": 60 } } }%%
+flowchart TD
+  ForceOfNature("🚀 Force of Nature<br/><b>Diagnostic & Methodology</b>")
+  GrowthSignal("⚡ Growth Signal<br/><b>Performance & Embedding</b>")
+  Platform("🌐 Vibe Forge AI — The Bridge Platform")
+  ClientB2B("🏢 B2B/Enterprise Client")
+  DevElite("🧑‍💻 AI Developer/Consultant")
+  Partners("🤝 Partners/Vendors/Agencies")
+
+  ForceOfNature -- "Framework 324%, Diagnostic Score, Opportunities" --> Platform
+  GrowthSignal -- "Embedded Analytics/Solutions, Media Performance, Embedded Team" --> Platform
+
+  Platform -- "One login, One dashboard: everything integrated" --> ClientB2B
+  Platform -- "Projects, Matching, Unified Panel" --> DevElite
+  Platform -- "Business channel, Synergies, Marketplace" --> Partners
+  Platform -- "Integrated KPI & ROI Reports" --> ForceOfNature
+  Platform -- "Performance loop, feedback, learning" --> GrowthSignal
+
+  classDef epic fill:#a7f3d0,stroke:#ef4444,stroke-width:2px;
+  class ForceOfNature,GrowthSignal,Platform epic

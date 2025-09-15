@@ -1,0 +1,47 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Manrope, Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif","primaryColor":"#8768FF","primaryBorderColor":"#120433","primaryTextColor":"#120433","lineColor":"#120433","background":"#F9F9FB"},"flowchart":{"curve":"basis","htmlLabels":true,"nodeSpacing":50,"rankSpacing":60}}}%%
+flowchart TD
+  %% Users & Apps
+  subgraph Users & Apps
+    User[👤 Client]
+    Dev[👩‍💻 Developer]
+    Admin[🛠️ Admin]
+    Dashboard[🖥️ Web App]
+  end
+
+  %% Platform Core (Vibe Forge AI)
+  subgraph Vibe Forge AI Platform
+    Auth[🔐 Auth]
+    Data[(📦 Data Layer)]
+    Logic[💡 AI/Logic]
+    API[🔗 API Hub]
+    Orchestrator[🤖 Orchestrator]
+  end
+
+  %% Integration Buckets
+  subgraph Integrations
+    Docs[Content & Docs\nNotion]
+    DevOps[Dev & Code\nGitHub]
+    Comms[Comms & Scheduling\nSlack • Calendly]
+    Pay[Payments & Analytics\nStripe • Mixpanel • Sentry]
+  end
+
+  User --> Auth
+  Dev --> Dashboard
+  Admin --> Dashboard
+  Dashboard --> Logic
+  Dashboard --> Data
+
+  Logic --> Orchestrator
+  API --> Docs
+  API --> DevOps
+  API --> Comms
+  API --> Pay
+
+  classDef input fill:#F9F9FB,stroke:#120433,color:#120433,stroke-width:1.5px,rx:8,ry:8,font-weight:600
+  classDef engine fill:#8768FF,stroke:#120433,color:#F9F9FB,stroke-width:1.5px,rx:8,ry:8,font-weight:600
+  classDef mult fill:#17F4E8,stroke:#120433,color:#120433,stroke-width:1.5px,rx:8,ry:8,font-weight:600
+  classDef out fill:#120433,stroke:#8768FF,color:#F9F9FB,stroke-width:1.5px,rx:8,ry:8,font-weight:600
+
+  class User,Dev,Admin,Dashboard input
+  class Auth,Data,Logic,API,Orchestrator engine
+  class Docs,DevOps,Comms,Pay mult

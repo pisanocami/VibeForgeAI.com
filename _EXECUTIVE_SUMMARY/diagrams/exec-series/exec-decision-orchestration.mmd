@@ -1,0 +1,27 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Manrope, Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif","primaryColor":"#8768FF","primaryBorderColor":"#120433","primaryTextColor":"#120433","lineColor":"#120433","background":"#F9F9FB"},"flowchart":{"curve":"basis","htmlLabels":true,"nodeSpacing":50,"rankSpacing":60}}}%%
+flowchart TD
+  A[Decision & Orchestration Options] --> Assignment[Assignment Policy<br/>• Auto-assign best-fit developer<br/>• Confidence & policy thresholds<br/>• Ranked shortlist alternative]
+
+  A --> Approval[Approval Modes<br/>• Susan one-click actions<br/>• Secure link/email approvals<br/>• Multi-approver workflows<br/>• Book call integration]
+
+  A --> Scheduling[Scheduling & Collaboration<br/>• Auto-schedule via Calendly<br/>• Slack thread creation<br/>• Email digests<br/>• Time zone preferences]
+
+  A --> Contracting[Contracting & Payments<br/>• NDA templates<br/>• SoW + MSA e-signatures<br/>• Stripe pre-paid PoC<br/>• PO support]
+
+  Assignment --> Orchestration[Orchestration Engine<br/>• Automated workflows<br/>• Policy enforcement<br/>• Integration triggers<br/>• Status synchronization]
+
+  Approval --> Orchestration
+  Scheduling --> Orchestration
+  Contracting --> Orchestration
+
+  Orchestration --> Efficiency[Efficiency Gains<br/>• Reduced manual coordination<br/>• Faster decision cycles<br/>• Consistent processes<br/>• Audit trails]
+
+  classDef framework fill:#120433,stroke:#8768FF,color:#F9F9FB,stroke-width:2px,rx:12,ry:12,font-weight:700
+  classDef option fill:#F9F9FB,stroke:#120433,color:#120433,stroke-width:1.5px,rx:8,ry:8,font-weight:600
+  classDef orchestration fill:#17F4E8,stroke:#120433,color:#120433,stroke-width:1.5px,rx:6,ry:6,font-weight:500
+  classDef efficiency fill:#120433,stroke:#8768FF,color:#F9F9FB,stroke-width:1.5px,rx:8,ry:8,font-weight:600
+
+  class A framework
+  class Assignment,Approval,Scheduling,Contracting option
+  class Orchestration orchestration
+  class Efficiency efficiency

@@ -1,0 +1,12 @@
+{
+  // md-to-pdf configuration for VIBESHIFT.AI Executive README (PRO)
+  "basedir": ".",
+  "stylesheet": [
+    "./pdf-theme.css"
+  ],
+  "pdf_options": {
+    "format": "A4",
+    "margin": "20mm 18mm 22mm 18mm",
+    "printBackground": true
+  }
+}

@@ -1,0 +1,31 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Manrope, Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif","primaryColor":"#8768FF","primaryBorderColor":"#120433","primaryTextColor":"#120433","lineColor":"#120433","background":"#F9F9FB"},"flowchart":{"curve":"basis","htmlLabels":true,"nodeSpacing":50,"rankSpacing":60}}}%%
+flowchart TD
+  A[Success Metrics & KPIs Framework] --> Time[Time-to-Value Metrics<br/>• Time to Diagnostic: <1 hour<br/>• Time to Shortlist: <4 hours<br/>• Time to Launch: <1 week<br/>• Time to SoW Approval: -50-70%]
+
+  A --> Quality[Quality & Performance<br/>• Diagnostic Accuracy: >90%<br/>• Matching Quality: >85%<br/>• Code Coverage: >80%<br/>• Lighthouse Score: >90]
+
+  A --> Business[Business Impact<br/>• Scope Churn Reduction: -20-35%<br/>• Production Success Rate: >90%<br/>• Customer Satisfaction: >4.5/5<br/>• Portfolio Velocity: +200%]
+
+  A --> Financial[Financial Outcomes<br/>• 3-9 Month Payback Window<br/>• 20-45% Ticket Deflection<br/>• 15-35% Cycle Time Reduction<br/>• Improved Forecast Accuracy]
+
+  Time --> Measurement[Measurement Engine<br/>• Real-time Dashboards<br/>• Automated Reporting<br/>• KPI Tracking Systems<br/>• Performance Analytics]
+
+  Quality --> Measurement
+  Business --> Measurement
+  Financial --> Measurement
+
+  Measurement --> Optimization[Continuous Optimization<br/>• Process Improvement<br/>• Algorithm Refinement<br/>• Quality Enhancement<br/>• Customer Experience]
+
+  Optimization --> Benchmarking[Benchmarking & Goals<br/>• Industry Comparisons<br/>• Historical Performance<br/>• Target Setting<br/>• Success Milestones]
+
+  Benchmarking --> Intelligence[Intelligence Insights<br/>• Predictive Analytics<br/>• Trend Analysis<br/>• Opportunity Identification<br/>• Strategic Planning]
+
+  classDef framework fill:#120433,stroke:#8768FF,color:#F9F9FB,stroke-width:2px,rx:12,ry:12,font-weight:700
+  classDef metric fill:#F9F9FB,stroke:#120433,color:#120433,stroke-width:1.5px,rx:8,ry:8,font-weight:600
+  classDef measurement fill:#8768FF,stroke:#120433,color:#F9F9FB,stroke-width:1.5px,rx:8,ry:8,font-weight:600
+  classDef optimization fill:#17F4E8,stroke:#120433,color:#120433,stroke-width:1.5px,rx:6,ry:6,font-weight:500
+
+  class A framework
+  class Time,Quality,Business,Financial metric
+  class Measurement measurement
+  class Optimization,Benchmarking,Intelligence optimization

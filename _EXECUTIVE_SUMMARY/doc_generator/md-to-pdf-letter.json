@@ -1,0 +1,14 @@
+{
+  "basedir": ".",
+  "stylesheet": [
+    "./pdf-theme.css"
+  ],
+  "pdf_options": {
+    "format": "Letter",
+    "margin": "20mm 18mm 22mm 18mm",
+    "printBackground": true,
+    "displayHeaderFooter": true,
+    "headerTemplate": "<div style=\"font-size:8px;color:#666;width:100%;padding:0 18mm;display:flex;justify-content:space-between;\"><span>VibeAccelerate — Strategic Executive README</span><span><script>new Date().toLocaleDateString()</script></span></div>",
+    "footerTemplate": "<div style=\"font-size:8px;color:#666;width:100%;padding:0 18mm;display:flex;justify-content:flex-end;\"><span class=\"pageNumber\"></span>/<span class=\"totalPages\"></span></div>"
+  }
+}

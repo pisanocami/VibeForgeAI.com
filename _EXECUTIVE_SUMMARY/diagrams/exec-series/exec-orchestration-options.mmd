@@ -1,0 +1,33 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Manrope, Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif","primaryColor":"#8768FF","primaryBorderColor":"#120433","primaryTextColor":"#120433","lineColor":"#120433","background":"#F9F9FB"},"flowchart":{"curve":"basis","htmlLabels":true,"nodeSpacing":50,"rankSpacing":60}}}%%
+flowchart TD
+  A[Decision & Orchestration Options] --> Assignment[Assignment Policy<br/>• Auto-Assign (High Confidence)<br/>• Executive Shortlist Review<br/>• Confidence Thresholds<br/>• Policy-Based Routing]
+
+  A --> Approval[Approval Modes<br/>• One-Click Actions<br/>• Multi-Approver Workflows<br/>• Secure Link/Email Access<br/>• Escalation Protocols]
+
+  A --> Scheduling[Scheduling & Collaboration<br/>• Calendly Integration<br/>• Time Zone Awareness<br/>• Slack Thread Creation<br/>• Email Digest Preferences]
+
+  A --> Contracting[Contracting & Payments<br/>• NDA Templates<br/>• SoW + MSA Generation<br/>• E-Signature Processing<br/>• Stripe Payment Links]
+
+  Assignment --> Orchestration[Orchestration Engine<br/>• Workflow Automation<br/>• Stakeholder Coordination<br/>• Timeline Management<br/>• Progress Tracking]
+
+  Approval --> Orchestration
+  Scheduling --> Orchestration
+  Contracting --> Orchestration
+
+  Orchestration --> Delivery[Delivery Variants<br/>• PoC Acceleration<br/>• Enterprise Implementation<br/>• Sandbox Previews<br/>• Digital Twin Options]
+
+  Delivery --> Fallback[Fallback Paths<br/>• Scope Adjustment<br/>• Developer Swap<br/>• Solution Architect Escalation<br/>• Project Cancellation]
+
+  Fallback --> Risk[Risk Management<br/>• Budget Caps<br/>• Security Checklists<br/>• Data Residency Gates<br/>• Compliance Enforcement]
+
+  Risk --> Feedback[Feedback & Iteration<br/>• In-App Co-Pilot<br/>• Spec Refinement<br/>• Acceptance Criteria Updates<br/>• Comment Thread Management]
+
+  classDef orchestration fill:#120433,stroke:#8768FF,color:#F9F9FB,stroke-width:2px,rx:12,ry:12,font-weight:700
+  classDef decision fill:#F9F9FB,stroke:#120433,color:#120433,stroke-width:1.5px,rx:8,ry:8,font-weight:600
+  classDef engine fill:#8768FF,stroke:#120433,color:#F9F9FB,stroke-width:1.5px,rx:8,ry:8,font-weight:600
+  classDef variant fill:#17F4E8,stroke:#120433,color:#120433,stroke-width:1.5px,rx:6,ry:6,font-weight:500
+
+  class A orchestration
+  class Assignment,Approval,Scheduling,Contracting decision
+  class Orchestration engine
+  class Delivery,Fallback,Risk,Feedback variant
