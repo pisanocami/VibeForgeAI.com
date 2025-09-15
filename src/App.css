@@ -39,9 +39,9 @@
 
 body {
   margin: 0;
-  font-family: var(--font-primary);
-  background-color: var(--color-neutral-50);
-  color: var(--color-neutral-900);
+  font-family: var(--font-secondary);
+  background-color: var(--color-neutral-900);
+  color: var(--color-neutral-50);
 }
 
 main {

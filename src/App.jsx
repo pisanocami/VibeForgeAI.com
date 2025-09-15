@@ -7,7 +7,7 @@ export default function App() {
       <div className="hello-world-container">
         <h1 className="hello-title">Hello World</h1>
         <p className="hello-subtitle">
-          Desarrollo de Software con IA
+          Vibe Coding with AI
         </p>
       </div>
     </main>
