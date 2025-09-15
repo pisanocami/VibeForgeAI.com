@@ -37,11 +37,18 @@
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
-body {
+body.dark-mode {
   margin: 0;
   font-family: var(--font-secondary);
   background-color: var(--color-neutral-900);
   color: var(--color-neutral-50);
+}
+
+body.light-mode {
+  margin: 0;
+  font-family: var(--font-primary);
+  background-color: var(--color-neutral-50);
+  color: var(--color-neutral-900);
 }
 
 main {
@@ -55,10 +62,17 @@ main {
 .hello-world-container {
   text-align: center;
   padding: 2rem;
-  background: white;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   max-width: 600px;
+}
+
+body.dark-mode .hello-world-container {
+  background: var(--color-neutral-800);
+}
+
+body.light-mode .hello-world-container {
+  background: white;
 }
 
 .hello-title {
@@ -66,13 +80,28 @@ main {
   font-weight: 700;
   color: var(--color-primary);
   margin-bottom: 1rem;
+}
+
+body.dark-mode .hello-title {
+  font-family: var(--font-secondary);
+}
+
+body.light-mode .hello-title {
   font-family: var(--font-primary);
 }
 
 .hello-subtitle {
   font-size: 1.25rem;
-  color: var(--color-neutral-600);
   margin-bottom: 2rem;
+}
+
+body.dark-mode .hello-subtitle {
+  color: var(--color-neutral-300);
+  font-family: var(--font-secondary);
+}
+
+body.light-mode .hello-subtitle {
+  color: var(--color-neutral-600);
   font-family: var(--font-primary);
 }
 
