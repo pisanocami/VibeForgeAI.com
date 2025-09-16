@@ -1,5 +1,6 @@
 ---
 description: UX/UI Wireframing & Layout Design Workflow
+auto_execution_mode: 3
 ---
 
 # UX/UI Wireframing & Layout Design

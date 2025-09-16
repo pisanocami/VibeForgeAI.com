@@ -4,8 +4,8 @@ Este archivo registra todos los workflows disponibles en el directorio `.windsur
 
 ## Estructura General
 
-- **Total de directorios de workflows:** 14
-- **Total de archivos de workflow:** 94+
+- **Total de directorios de workflows:** 15
+- **Total de archivos de workflow:** 100+
 - **Archivos en la raíz:** 1
 
 ## Workflows por Directorio
@@ -63,6 +63,15 @@ Este archivo registra todos los workflows disponibles en el directorio `.windsur
 ### General (2 workflows)
 - README.md
 - agent.md
+
+### MVP (7 workflows)
+- README.md
+- mvp-docs.md
+- mvp-diagrams.md
+- mvp-frontend.md
+- mvp-backend.md
+- mvp-security.md
+- mvp-builder.md
 
 ### Notion (9 workflows)
 - README.md

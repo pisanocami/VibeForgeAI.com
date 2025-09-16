@@ -1,5 +1,6 @@
 ---
 description: Build Perfect Vite + React App — Arquitectura primero, Auth con Neon, ejecutable end‑to‑end (Windows-friendly)
+auto_execution_mode: 3
 ---
 
 # Build Perfect Vite + React App (Arquitectura Primero, Auth con Neon)

@@ -1,9 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import AppRouter from '@/app/router'
+import Providers from '@/app/providers'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-	<React.StrictMode>
-		<App />
-	</React.StrictMode>
+  <React.StrictMode>
+    <Providers>
+      <AppRouter />
+    </Providers>
+  </React.StrictMode>
 )

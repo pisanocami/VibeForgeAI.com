@@ -1,5 +1,6 @@
 ---
 description: Branding — Orchestrator (end‑to‑end pipeline for brand)
+auto_execution_mode: 3
 ---
 
 Coordina todos los workflows de Branding en un pipeline reproducible, con preflights seguros en Windows, salidas estandarizadas y gobernanza de Notion.

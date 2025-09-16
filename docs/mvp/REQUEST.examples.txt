@@ -1,0 +1,19 @@
+# Ejemplos de solicitudes en lenguaje natural para el MVP AutoParse
+
+## 1) Next.js + MongoDB, sin backend separado
+Landing con login y dashboard, Next.js con MongoDB. Sin backend separado; usar API Routes. Incluir auditoría de seguridad.
+
+## 2) React/Vite + Tailwind+shadcn, Fastify + Postgres (Neon)
+Front en React/Vite con Tailwind y shadcn; backend Fastify con Postgres (Neon). Agregar diagramas de arquitectura.
+
+## 3) Solo documentación (PRD + diagramas)
+Solo documentación (PRD y diagramas) por ahora; sin frontend ni backend.
+
+## 4) SvelteKit + SQLite, rápido, sin security
+Prototipo rápido con SvelteKit y SQLite. No correr auditoría de seguridad. Generar diagramas mínimos.
+
+## 5) Angular + Express + MongoDB + OWASP
+Frontend Angular, backend Express, base de datos MongoDB. Ejecutar SAST (OWASP top-ten) y checklist de secretos.
+
+## 6) Inglés: Next.js + Neon + hardening
+MVP with Next.js frontend and Neon (Postgres) database, minimal Fastify backend. Add security hardening and run dependency audit.
