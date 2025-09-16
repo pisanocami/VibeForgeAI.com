@@ -1,0 +1,44 @@
+graph TD
+    %% Diagrama exclusivamente de guía de uso
+    subgraph usageGuide["🧭 Guía de uso — Pasos rápidos"]
+        G1["(Opcional) Definir requerimientos<br/>PowerShell: $env:MVP_REQUEST=\"Texto del objetivo\""]
+        G2["(Opcional) Revisar/editar configuración<br/>Archivo: .windsurf/workflows/MVP/mvp.config.json"]
+        G3["Ejecutar orquestador<br/>PowerShell: .\\run-mvp.ps1"]
+        G4["Seleccionar módulos y confirmar prompts<br/>mvp-builder guía la ejecución"]
+        G5["Revisar resultados y documentación<br/>Abrir: .windsurf/workflows/MVP/docs/*.mmd y README"]
+        G6["Iterar si es necesario<br/>Actualizar MVP_REQUEST o mvp.config.json y re-ejecutar"]
+    end
+a
+    %% Flujo secuencial
+    G1 --> G2 --> G3 --> G4 --> G5 --> G6
+
+    %% Tips rápidos
+    subgraph tips["💡 Tips"]
+        T1["Puedes omitir G1 si usas solo mvp.config.json"]
+        T2["Variables de entorno de selección:<br/>$env:SELECT=\"docs,frontend,backend\""]
+        T3["Reintentar en limpio:<br/>Remove-Item project-logs/mvp/intake/latest.json -ErrorAction SilentlyContinue"]
+    end
+
+    %% Referencias
+    subgraph refs["📂 Referencias"]
+        R1["Diagrama completo: mvp-workflows-flow.mmd"]
+        R2["Diagrama simple: mvp-workflows-flow-simple.mmd"]
+        R3["Diagrama simple + guía: mvp-workflows-flow-simple-guide.mmd"]
+    end
+
+    %% Conexiones guía ↔ tips / referencias
+    G1 -.-> T1
+    G2 -.-> T2
+    G3 -.-> T3
+    G5 -.-> R1
+    G5 -.-> R2
+    G5 -.-> R3
+
+    %% Estilos
+    classDef guideStyle fill:#FFFDE7,stroke:#F57F17,stroke-width:1px
+    classDef tipsStyle fill:#E3F2FD,stroke:#0D47A1,stroke-width:1px
+    classDef refsStyle fill:#f3e5f5,stroke:#4a148c,stroke-width:1px
+
+    class G1,G2,G3,G4,G5,G6 guideStyle
+    class T1,T2,T3 tipsStyle
+    class R1,R2,R3 refsStyle

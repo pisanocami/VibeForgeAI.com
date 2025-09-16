@@ -1,7 +1,6 @@
 ---
 description: MVP — Documentación base (PRD, arquitectura, API) con publicación opcional en Notion
-category: mvp
-stability: stable
+auto_execution_mode: 3
 ---
 
 # /mvp-docs — Documentación base del MVP
@@ -34,23 +33,28 @@ $log = "project-logs/mvp/logs/run-$(Get-Date -Format yyyyMMdd-HHmmss).md"
 ## Pasos
 
 ### 1) Base estratégica y PRD
+// turbo
 - Ejecuta `/product-strategy-and-definition` para generar los artefactos de base en `docs/{project_slug}/product/` (si no hay slug aún, usar `docs/mvp/` temporalmente).
 - Registra rutas y timestamp en `project-logs/mvp/logs/`.
 
 ### 2) API Docs (REST/GraphQL)
+// turbo
 - Ejecuta `/api-docs` y enfoca en los endpoints mínimos del MVP.
 - Artefactos esperados:
   - `docs/mvp/api/README.md`
   - `docs/mvp/api/examples/*.http`
 
 ### 3) Diagramas esenciales
+// turbo
 - Ejecuta `/documentation/architecture-diagrams` para tener vistas de alto nivel (estructura, flujo de datos, dependencias).
 - Guarda copias bajo `docs/mvp/diagrams/`.
 
 ### 4) Component/Patterns docs (opcional)
+// turbo
 - Ejecuta `/documentation/component-docs` y `/documentation/patterns-docs` si hay UI definida.
 
 ### 5) Publicación en Notion (opcional, cumpliendo Regla 1)
+// turbo
 - Ejecuta `/create-dynamic-root` para crear SIEMPRE una nueva raíz Notion y obtener dinámicamente `root_page_id`.
 - Publica como subpáginas: PRD, API y Diagramas bajo esa raíz.
 - Registra URLs y mapping local→Notion en `project-logs/mvp/logs/run-*.md`.

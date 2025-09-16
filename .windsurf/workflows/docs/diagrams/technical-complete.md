@@ -1,0 +1,132 @@
+# Visión Técnica Completa — MVP Workflows
+
+```mermaid
+%% Archivo generado desde technical-complete.mmd
+graph TB
+  subgraph inputs ["📥 Entradas"]
+    I1["MVP_REQUEST (env var)"]
+    I3["mvp.config.json"]
+  end
+
+  subgraph autoparse ["🧠 AutoParse / Config"]
+    AP1["Parser de lenguaje natural"]
+    AP2["Inferencia de configuración"]
+    AP3["Usar mvp.config.json"]
+  end
+
+  subgraph orchestrator ["🎯 Orquestador"]
+    B1["mvp-builder"]
+    B2["Preflight: crear directorios"]
+    B3["Selector de módulos"]
+    B4["Configurador de tecnologías"]
+  end
+
+  subgraph workflows ["⚙️ Workflows"]
+    WPDF["mvp-from-pdf"]
+    WDOCS["mvp-docs"]
+    WFE["mvp-frontend"]
+    WBE["mvp-backend"]
+    WDIAG["mvp-diagrams"]
+    WSEC["mvp-security"]
+  end
+
+  subgraph docsSteps ["📝 mvp-docs pasos"]
+    DOC1["Generar PRD + API + guías"]
+    DOC2["Publicar en Notion"]
+  end
+
+  subgraph frontendSteps ["🎨 mvp-frontend pasos"]
+    FE1["Elegir stack React/Next"]
+    FE2["Instalar UI Tailwind+shadcn"]
+    FE3["Scaffold vistas y rutas"]
+    FE4["Configurar API client"]
+  end
+
+  subgraph backendSteps ["🔧 mvp-backend pasos"]
+    BE1["Elegir stack Fastify/Express"]
+    BE2["Configurar DB Postgres/Neon"]
+    BE3["Generar endpoints API"]
+    BE4["Configurar seguridad CORS"]
+  end
+
+  subgraph diagramSteps ["📊 mvp-diagrams pasos"]
+    DG1["Generar Mermaid mmd"]
+    DG2["Exportar a docs"]
+  end
+
+  subgraph securitySteps ["🔒 mvp-security pasos"]
+    SC1["Auditoría dependencias"]
+    SC2["Chequear secretos y lints"]
+  end
+
+  subgraph integrations ["🌐 Integraciones"]
+    N1["Notion API"]
+  end
+
+  subgraph runtime ["⚡ Runtime mejoras propuestas"]
+    LG["Logger estructurado"]
+    CK["Checkpoint Manager"]
+    DP["Dependency Cache"]
+    PR["Jobs en paralelo"]
+  end
+
+  %% Flujo principal
+  I1 --> AP1
+  I3 --> AP1
+  AP1 --> AP2
+  AP2 --> AP3
+  AP3 --> B1
+  B1 --> B2
+  B2 --> B3
+  B1 --> B4
+
+  %% Orquestador a workflows
+  B3 --> WDOCS
+  B3 --> WFE
+  B3 --> WBE
+  B3 --> WDIAG
+  B3 --> WSEC
+  WPDF --> WDOCS
+
+  %% Workflows a pasos internos
+  WDOCS --> DOC1
+  DOC1 --> DOC2
+  DOC2 --> N1
+
+  WFE --> FE1
+  FE1 --> FE2
+  FE2 --> FE3
+  FE3 --> FE4
+
+  WBE --> BE1
+  BE1 --> BE2
+  BE2 --> BE3
+  BE3 --> BE4
+
+  WDIAG --> DG1
+  DG1 --> DG2
+
+  WSEC --> SC1
+  SC1 --> SC2
+
+  %% Runtime mejoras
+  B1 -.-> LG
+  B1 -.-> CK
+  B1 -.-> DP
+  B1 -.-> PR
+
+  %% Estilos
+  classDef orchestratorStyle fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+  classDef moduleStyle fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+  classDef stepStyle fill:#e8f5e9,stroke:#1b5e20,stroke-width:1px
+  classDef externalStyle fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+  classDef inputStyle fill:#E3F2FD,stroke:#0D47A1,stroke-width:1px
+  classDef runtimeStyle fill:#FFFDE7,stroke:#F57F17,stroke-width:1px
+
+  class B1,B2,B3,B4 orchestratorStyle
+  class WPDF,WDOCS,WFE,WBE,WDIAG,WSEC moduleStyle
+  class DOC1,DOC2,FE1,FE2,FE3,FE4,BE1,BE2,BE3,BE4,DG1,DG2,SC1,SC2 stepStyle
+  class N1 externalStyle
+  class I1,I3 inputStyle
+  class LG,CK,DP,PR runtimeStyle
+```

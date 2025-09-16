@@ -1,7 +1,6 @@
 ---
 description: MVP — Diagramas de arquitectura y flujo (rápido y enfocado)
-category: mvp
-stability: stable
+auto_execution_mode: 3
 ---
 
 # /mvp-diagrams — Diagramas esenciales del MVP
@@ -46,10 +45,13 @@ Write-Host "[mvp-diagrams] RUN_DIAGRAMS=$RUN_DIAGRAMS"
 
 ## Pasos
 1) Ejecuta `/documentation/architecture-diagrams`.
+// turbo
    - Ejecutar solo si `RUN_DIAGRAMS` es verdadero.
 2) Copia o referencia los artefactos generados hacia `docs/mvp/diagrams/`.
+// turbo
    - Ejecutar solo si `RUN_DIAGRAMS` es verdadero.
 3) Genera un índice `docs/mvp/diagrams/README.md` con enlaces a:
+// turbo
    - `project-structure.md`
    - `data-flow.md`
    - `component-architecture.md`

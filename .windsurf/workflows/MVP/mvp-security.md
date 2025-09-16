@@ -1,7 +1,6 @@
 ---
 description: MVP — Auditoría de seguridad básica (deps, SAST opcional, secretos, a11y)
-category: mvp
-stability: stable
+auto_execution_mode: 3
 ---
 
 # /mvp-security — Seguridad básica para MVP
@@ -11,7 +10,6 @@ Ejecuta chequeos rápidos de seguridad para el MVP: dependencias vulnerables, es
 Related: `/revisar-seguridad`, `/secrets-and-env-governance`, `/a11y-checklist`
 
 ## Preflight (Windows PowerShell) — seguro para auto‑ejecutar
-// turbo
 ```powershell
 $paths = @('project-logs/security')
 $paths | ForEach-Object { if (!(Test-Path $_)) { New-Item -ItemType Directory -Path $_ | Out-Null } }
@@ -19,13 +17,17 @@ $paths | ForEach-Object { if (!(Test-Path $_)) { New-Item -ItemType Directory -P
 
 ## Pasos
 1) Dependencias
+// turbo
    - Node: `npm audit --json | Out-File -Encoding UTF8 project-logs/security/npm-audit.json`
    - Python (si aplica): `pip list --outdated > project-logs/security/pip-outdated.txt`
 2) SAST (opcional)
+// turbo
    - Semgrep (si instalado): `semgrep --config p/owasp-top-ten --json > project-logs/security/semgrep.json`
 3) Secretos y entornos
+// turbo
    - Ejecuta `/secrets-and-env-governance` y registra hallazgos.
 4) A11y rápida (frontend)
+// turbo
    - Ejecuta `/a11y-checklist`.
 
 ## Artefactos

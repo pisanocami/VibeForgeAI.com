@@ -1,0 +1,178 @@
+{
+  "frontend": {
+    "react-vite": {
+      "packages": [
+        "@tanstack/react-query",
+        "@tanstack/react-query-devtools",
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "react-router-dom",
+        "@types/react-router-dom",
+        "axios",
+        "date-fns"
+      ],
+      "devPackages": [
+        "@types/node",
+        "vitest",
+        "@testing-library/react",
+        "@testing-library/jest-dom",
+        "jsdom"
+      ],
+      "postInit": [
+        "npm create vite@latest . -- --template react-ts --yes",
+        "npm install"
+      ]
+    },
+    "react-vite-enterprise": {
+      "packages": [
+        "@clerk/clerk-react",
+        "@clerk/clerk-js",
+        "@tanstack/react-query",
+        "@tanstack/react-query-devtools",
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "react-router-dom",
+        "@types/react-router-dom",
+        "tailwindcss",
+        "postcss",
+        "autoprefixer",
+        "@tailwindcss/forms",
+        "@tailwindcss/typography",
+        "@radix-ui/react-dialog",
+        "@radix-ui/react-dropdown-menu",
+        "@radix-ui/react-select",
+        "@radix-ui/react-toast",
+        "@radix-ui/react-tabs",
+        "@radix-ui/react-accordion",
+        "@radix-ui/react-avatar",
+        "lucide-react",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge",
+        "axios",
+        "date-fns",
+        "recharts"
+      ],
+      "devPackages": [
+        "@types/node",
+        "vitest",
+        "@testing-library/react",
+        "@testing-library/jest-dom",
+        "jsdom"
+      ],
+      "postInit": [
+        "npm create vite@latest . -- --template react-ts --yes",
+        "npm install",
+        "npx tailwindcss init -p",
+        "mkdir -p src/lib src/components src/pages src/hooks src/types src/components/ui"
+      ]
+    },
+    "nextjs": {
+      "packages": [
+        "@tanstack/react-query",
+        "react-hook-form",
+        "@hookform/resolvers",
+        "zod",
+        "axios",
+        "date-fns"
+      ],
+      "devPackages": [
+        "@types/node",
+        "vitest",
+        "@testing-library/react",
+        "@testing-library/jest-dom",
+        "jsdom"
+      ],
+      "postInit": [
+        "npx create-next-app@latest . --typescript --eslint --app --tailwind --yes"
+      ]
+    },
+    "sveltekit": {
+      "packages": [
+        "@tanstack/svelte-query",
+        "zod",
+        "axios",
+        "date-fns"
+      ],
+      "devPackages": [
+        "vitest",
+        "@testing-library/svelte",
+        "jsdom"
+      ],
+      "postInit": [
+        "npm create svelte@latest .",
+        "npm install"
+      ]
+    },
+    "angular": {
+      "packages": [
+        "@angular/router",
+        "@angular/common",
+        "@angular/core",
+        "axios",
+        "zod",
+        "date-fns"
+      ],
+      "devPackages": [
+        "@types/node",
+        "vitest",
+        "jsdom"
+      ],
+      "postInit": [
+        "npm install -g @angular/cli",
+        "ng new . --routing --style css --yes"
+      ]
+    }
+  },
+  "ui": {
+    "tailwind+shadcn": {
+      "packages": [
+        "tailwindcss",
+        "postcss",
+        "autoprefixer",
+        "@tailwindcss/forms",
+        "@tailwindcss/typography",
+        "@radix-ui/react-dialog",
+        "@radix-ui/react-dropdown-menu",
+        "@radix-ui/react-select",
+        "@radix-ui/react-toast",
+        "@radix-ui/react-tabs",
+        "@radix-ui/react-accordion",
+        "@radix-ui/react-avatar",
+        "lucide-react",
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "postInit": [
+        "npx tailwindcss init -p",
+        "npx shadcn-ui@latest init --yes"
+      ]
+    },
+    "tailwind": {
+      "packages": [
+        "tailwindcss",
+        "postcss",
+        "autoprefixer"
+      ],
+      "postInit": [
+        "npx tailwindcss init -p"
+      ]
+    },
+    "none": {
+      "packages": [],
+      "postInit": []
+    }
+  },
+  "base": {
+    "packages": [
+      "axios",
+      "date-fns"
+    ],
+    "devPackages": [
+      "@types/node"
+    ]
+  }
+}

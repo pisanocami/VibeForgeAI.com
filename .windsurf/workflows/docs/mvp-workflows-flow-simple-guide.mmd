@@ -1,0 +1,66 @@
+graph TB
+    subgraph inputs ["📥 Entradas"]
+        I1["MVP_REQUEST (env var)"]
+        I3["mvp.config.json"]
+    end
+
+    subgraph autoparse ["🧠 AutoParse / Config"]
+        AP1["Parser de lenguaje natural"]
+        AP2["Inferencia de configuración"]
+        AP3["Usar mvp.config.json"]
+    end
+
+    subgraph orchestrator ["🎯 Orquestador"]
+        B1["mvp-builder"]
+        B3["Selector de módulos"]
+    end
+
+    subgraph workflows ["⚙️ Workflows"]
+        WPDF["mvp-from-pdf"]
+        WDOCS["mvp-docs"]
+        WFE["mvp-frontend"]
+        WBE["mvp-backend"]
+        WDIAG["mvp-diagrams"]
+        WSEC["mvp-security"]
+    end
+
+    %% Guía de uso (relacionada a Entradas)
+    subgraph usageGuide ["🧭 Guía rápida de uso"]
+        G1["(Opcional) Definir MVP_REQUEST<br/>PowerShell: $env:MVP_REQUEST=\"Texto del objetivo\""]
+        G2["Ajustar configuración<br/>Editar: .windsurf/workflows/MVP/mvp.config.json"]
+        G3["Ejecutar orquestador<br/>PowerShell: .\\run-mvp.ps1"]
+        G4["Seleccionar workflows<br/>Seguir prompts de mvp-builder y abrir archivos en .windsurf/workflows/MVP/"]
+    end
+
+    %% Flujo principal (simplificado)
+    I1 --> AP1
+    I3 --> AP1
+    AP1 --> AP2
+    AP2 --> AP3
+    AP3 --> B1
+    B1 --> B3
+
+    %% Orquestador a workflows
+    B3 --> WPDF
+    B3 --> WDOCS
+    B3 --> WFE
+    B3 --> WBE
+    B3 --> WDIAG
+    B3 --> WSEC
+
+    %% Enlaces guía ↔ entradas/ejecución
+    I1 -.-> G1
+    I3 -.-> G2
+    B1 -.-> G3
+    B3 -.-> G4
+
+    %% Estilos mínimos
+    classDef orchestratorStyle fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef moduleStyle fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef inputStyle fill:#E3F2FD,stroke:#0D47A1,stroke-width:1px
+    classDef guideStyle fill:#FFFDE7,stroke:#F57F17,stroke-width:1px
+
+    class B1,B3 orchestratorStyle
+    class WPDF,WDOCS,WFE,WBE,WDIAG,WSEC moduleStyle
+    class I1,I3 inputStyle
+    class G1,G2,G3,G4 guideStyle
