@@ -21,9 +21,9 @@ function Start-MVPBuilder {
     # Inicializar plugin manager
     $PluginManager = [PluginManager]::new()
 
-    # Ejecutar plugins según configuración
+    # Ejecutar plugins según configuración (pasando Config como Context)
     foreach ($plugin in $Config.plugins) {
-        $PluginManager.ExecutePlugin($plugin)
+        $PluginManager.ExecutePluginWithParams($plugin, @{ Context = $Config })
     }
 
     Write-Host "✅ MVP Builder completado"

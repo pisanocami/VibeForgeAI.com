@@ -5,9 +5,9 @@ auto_execution_mode: 3
 
 # /mvp-diagrams — Diagramas esenciales del MVP
 
-Genera los diagramas mínimos necesarios para entender el MVP: estructura del proyecto, flujo de datos, dependencias y componentes clave. Reutiliza `/documentation/architecture-diagrams` y guarda los artefactos bajo `docs/mvp/diagrams/`.
+Genera los diagramas mínimos necesarios para entender el MVP: estructura del proyecto, flujo de datos, dependencias y componentes clave. Reutiliza `/architecture-diagrams` y guarda los artefactos bajo `docs/mvp/diagrams/`.
 
-Related: `/documentation/architecture-diagrams`, `/mvp-docs`
+Related: `/architecture-diagrams`, `/mvp-docs`
 
 ## Preflight (Windows PowerShell) — seguro para auto‑ejecutar
 // turbo

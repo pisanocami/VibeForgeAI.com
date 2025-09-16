@@ -11,6 +11,10 @@ param(
     [switch]$SkipSecurity
 )
 
+# Forzar consola UTF-8 para evitar caracteres corruptos
+[Console]::InputEncoding  = [System.Text.UTF8Encoding]::new($false)
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
+
 # --- Helpers de interacción ---
 function Read-Select {
     param(
@@ -61,6 +65,7 @@ function Read-MultiSelect {
 # Configuración inicial
 $RootDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $WorkflowsDir = Join-Path $RootDir ".windsurf\workflows\MVP\core"
+$PluginsDir   = Join-Path $RootDir ".windsurf\workflows\MVP\plugins"
 
 Write-Host "[START] Iniciando MVP Core desde $RootDir" -ForegroundColor Green
 Write-Host "Solicitud: $Request" -ForegroundColor Cyan
@@ -75,10 +80,28 @@ try {
     # Cambiar al directorio de workflows
     Push-Location $WorkflowsDir
 
+    # Validar que scripts core existan antes de importar
+    $requiredCore = @(
+      (Join-Path $WorkflowsDir 'config-loader.ps1'),
+      (Join-Path $WorkflowsDir 'plugin-manager.ps1'),
+      (Join-Path $WorkflowsDir 'orchestrator.ps1')
+    )
+    $missing = @()
+    foreach ($p in $requiredCore) { if (-not (Test-Path $p)) { $missing += $p } }
+    if ($missing.Count -gt 0) {
+        Write-Host '[ERROR] Core workflows faltantes:' -ForegroundColor Red
+        $missing | ForEach-Object { Write-Host (' - {0}' -f $_) -ForegroundColor Red }
+        throw 'No se encontraron los scripts base del orquestador. Verifica .windsurf/workflows/MVP/core/'
+    }
+
     # Importar módulos del sistema
     . .\config-loader.ps1
     . .\plugin-manager.ps1
     . .\orchestrator.ps1
+
+    if (-not (Get-Command Start-MVPBuilder -ErrorAction SilentlyContinue)) {
+        throw 'Start-MVPBuilder no está definido por el orquestador. Revisa orchestrator.ps1'
+    }
 
     # --- Entrada interactiva ---
     if (-not $PSBoundParameters.ContainsKey('Request') -or [string]::IsNullOrWhiteSpace($Request)) {
@@ -91,18 +114,33 @@ try {
         if (-not [string]::IsNullOrWhiteSpace($pdfInput)) { $PdfPath = $pdfInput } else { $PdfPath = "" }
     }
 
-    # Selección de módulos
-    $allModules = @("docs","frontend","backend","diagrams","security")
-    $defaultModules = if ($PSBoundParameters.Keys | Where-Object { $_ -like 'Skip*' }) {
-        # Si se pasaron switches Skip, respetar los que no estén en Skip*
-        $tmp = @()
-        if (!$SkipDocs) { $tmp += "docs" }
-        if (!$SkipFrontend) { $tmp += "frontend" }
-        if (!$SkipBackend) { $tmp += "backend" }
-        if (!$SkipDiagrams) { $tmp += "diagrams" }
-        if (!$SkipSecurity) { $tmp += "security" }
-        $tmp
-    } else { $allModules }
+    # Selección de módulos (solo los disponibles en plugins/)
+    if (!(Test-Path $PluginsDir)) {
+        throw "Directorio de plugins no encontrado: $PluginsDir"
+    }
+    $pluginFiles = Get-ChildItem -Path $PluginsDir -Filter *.ps1 -File -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Name
+    $allModules = @()
+    foreach ($pf in $pluginFiles) { $allModules += ([System.IO.Path]::GetFileNameWithoutExtension($pf)) }
+    $allModules = $allModules | Where-Object { $_ } | Select-Object -Unique
+    if ($allModules.Count -eq 0) { throw "No hay plugins disponibles en $PluginsDir" }
+
+    # Respetar switches Skip* pero limitados a los plugins detectados
+    $defaultModules = @()
+    if ($PSBoundParameters.Keys | Where-Object { $_ -like 'Skip*' }) {
+        foreach ($m in $allModules) {
+            switch ($m) {
+                'docs'      { if (-not $SkipDocs)      { $defaultModules += 'docs' } }
+                'frontend'  { if (-not $SkipFrontend)  { $defaultModules += 'frontend' } }
+                'backend'   { if (-not $SkipBackend)   { $defaultModules += 'backend' } }
+                'diagrams'  { if (-not $SkipDiagrams)  { $defaultModules += 'diagrams' } }
+                'security'  { if (-not $SkipSecurity)  { $defaultModules += 'security' } }
+                default     { $defaultModules += $m }
+            }
+        }
+    } else {
+        $defaultModules = $allModules
+    }
+
     $modules = Read-MultiSelect -Label "Selecciona módulos a ejecutar" -Options $allModules -Default $defaultModules
     if ($modules.Count -eq 0) { $modules = $allModules }
 

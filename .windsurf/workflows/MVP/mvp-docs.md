@@ -7,7 +7,7 @@ auto_execution_mode: 3
 
 Genera la documentación esencial del MVP: estrategia y PRD, API docs y diagramas de arquitectura. Opcionalmente, publica en Notion cumpliendo la Regla 1 (crear SIEMPRE una nueva página raíz dinámica por ejecución).
 
-Related: `/product-strategy-and-definition`, `/documentation/api-docs`, `/documentation/architecture-diagrams`, `/create-dynamic-root`
+Related: `/product-strategy-and-definition`, `/api-docs`, `/architecture-diagrams`, `/create-dynamic-root`
 
 ## Objetivo
 - PRD y documentación estratégica mínimas para alinear alcance del MVP
@@ -46,12 +46,12 @@ $log = "project-logs/mvp/logs/run-$(Get-Date -Format yyyyMMdd-HHmmss).md"
 
 ### 3) Diagramas esenciales
 // turbo
-- Ejecuta `/documentation/architecture-diagrams` para tener vistas de alto nivel (estructura, flujo de datos, dependencias).
+- Ejecuta `/architecture-diagrams` para tener vistas de alto nivel (estructura, flujo de datos, dependencias).
 - Guarda copias bajo `docs/mvp/diagrams/`.
 
 ### 4) Component/Patterns docs (opcional)
 // turbo
-- Ejecuta `/documentation/component-docs` y `/documentation/patterns-docs` si hay UI definida.
+- Ejecuta `/component-docs` y `/patterns-docs` si hay UI definida.
 
 ### 5) Publicación en Notion (opcional, cumpliendo Regla 1)
 // turbo

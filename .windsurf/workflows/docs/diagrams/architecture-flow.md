@@ -15,7 +15,7 @@ graph LR
 
   subgraph layer3 ["⚙️ EXECUTE"]
     E1["🎨 Frontend<br/>React+Vite"]
-    E2["🔧 Backend<br/>Fastify+DB"] 
+    E2["🔧 Backend<br/>Express+Drizzle"] 
     E3["📚 Docs<br/>PRD+API"]
     E4["🔒 Security<br/>Auditoría"]
   end
@@ -46,3 +46,4 @@ graph LR
   class E1,E2,E3,E4 execute
   class O1 output
 ```
+
